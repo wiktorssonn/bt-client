@@ -1,17 +1,13 @@
-const loginApi = async (email, password) => {
+const getAllUsers = async () => {
     const options = {
-        method: 'POST',
+        method: 'GET',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-            email,
-            password
-        })
     }
 
     try {
-        const response = await fetch(`http://localhost:3001/login`, options);
+        const response = await fetch(`http://localhost:3001/users`, options);
         const result = await response.json();
         console.log('result: ', result);
         return result;
@@ -22,4 +18,4 @@ const loginApi = async (email, password) => {
     }
 }
 
-export default loginApi;
+export default getAllUsers;

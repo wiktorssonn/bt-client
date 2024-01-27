@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react'
-import loginApi from '../../api/auth/loginApi';
+import login from '../../api/auth/login';
 
 const LoginForm = () => {
     const [email, setEmail] = useState('');
@@ -13,7 +13,7 @@ const LoginForm = () => {
         console.log('username: ', email);
         console.log('password: ', password);
 
-        const response = await loginApi(email, password);
+        const response = await login(email, password);
         console.log('response: ', response);
         if (response) {
             localStorage.setItem('user', response.email);
@@ -22,8 +22,6 @@ const LoginForm = () => {
         else {
             setError('Something went wrong, try again');
         }
-
-
     }
 
     return (
